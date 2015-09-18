@@ -6,7 +6,10 @@ def main():
 	token = tokens.token
 	client = SlackClient(token)
 	if client.rtm_connect():
-		client.rtm_send_message("testbed", ":dank_horse:")
+		channel = raw_input("Channel name: ")
+		while True:
+			message = raw_input("Message: ")
+			client.rtm_send_message(channel, message)
 	else:
 		print "Connection Failed."
 
